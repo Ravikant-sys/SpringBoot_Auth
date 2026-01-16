@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <div class="container dashboard-container">
+        <h2>Welcome, <span th:text="${user.username}">User</span>!</h2>
+
+        <h3>Registered Users</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="u : ${users}">
+                    <td th:text="${u.id}">1</td>
+                    <td th:text="${u.username}">username</td>
+                    <td th:text="${u.email}">email@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a th:href="@{/logout}" class="logout-btn"
+            style="display: inline-block; text-decoration: none; color: white;">Logout</a>
+    </div>
+</body>
+
+</html>
